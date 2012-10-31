@@ -15,8 +15,8 @@ using namespace std;
 
 /*int Display ();
 {
-	ifstream inFile ("maze file.txt");
-	cout <<val;
+	
+	
 }
 
 int Game ();
@@ -31,28 +31,45 @@ int playerInput ();
 */
 int main ()
 {
-  ifstream fin;                   // Initialise filestream object.
-  char c;
-  int a;
+	int i,j;
+	char gameMap [24][81], c;
+	ifstream fin;                   // Initialise filestream object.
   
-  fin.open("maze file.txt", ios::in);
+	fin.open("maze file.txt", ios::in);
   
-  if(fin.fail())                 //Check for failure
-  {
-    cout << "Error: Unable to locate the maze";
-    exit(1);
-  }
+	if(fin.fail())                 //Check for failure
+	{
+		cout << "Error: Unable to locate the maze";
+		exit(1);
+	}
   
-  fin.get(c);                    // Get first character for kicks.
+	fin.get(c);                    // Get first character
    
-  while(!fin.fail() && !fin.eof())  //Check for failure and end of file
-  {
-    cout << c;
-    fin.get(c);                 //grabs next display
-  }
-  
-  fin.close();                  //Closing open streams
-  return 0;
+	while(!fin.fail() && !fin.eof())  //Check for failure and end of file//
+	{
+		for(i=0;i<24;i++){
+			for(j=0;j<81;j++){
+				c=gameMap[i][j];
+				fin.get(c);
+			}
+		}
+	}
+	
+	for(i=0;i<24;i++){
+		for(j=0;j<81;j++)
+			cout<<gameMap[i][j];
+		cout<< '\n';
+	}
+	fin.close();                  //Closing open streams
+	return 0;
 }
 
 //This is the end of the program
+
+
+/* Test coding here
+ * ifstream fin;
+ * 
+ * char ** gameMap *[n]
+ * 	for (int i = 0, i < n, i++)
+ * 		secArray [i] = new char [map(i)];*/
