@@ -13,13 +13,25 @@
 
 using namespace std;
 
-/*int Display ();
+char passAlong[24][81];
+
+int Display (char=passAlong[24][81])
 {
+	int i,j;
+	char passAlong[24][81];
+
 	
+	for(i=0;i<24;i++){
+		for(j=0;j<81;j++)
+			cout<<passAlong[i][j];
+	cout<< "Choose a direction to travel \n";
+	cout<< "w for UP \n a for LEFT\n s for DOWN \n d for RIGHT \n";
+	}
 	
+	return (passAlong[24][81]);
 }
 
-int Game ();
+/*int Game ();
 {
 	
 }
@@ -49,17 +61,13 @@ int main ()
 	{
 		for(i=0;i<24;i++){
 			for(j=0;j<81;j++){
-				c=gameMap[i][j];
+				gameMap[i][j]=c;
 				fin.get(c);
 			}
 		}
 	}
+	passAlong[24][81]=Display(gameMap[24][81]);
 	
-	for(i=0;i<24;i++){
-		for(j=0;j<81;j++)
-			cout<<gameMap[i][j];
-		cout<< '\n';
-	}
 	fin.close();                  //Closing open streams
 	return 0;
 }
@@ -67,9 +75,4 @@ int main ()
 //This is the end of the program
 
 
-/* Test coding here
- * ifstream fin;
- * 
- * char ** gameMap *[n]
- * 	for (int i = 0, i < n, i++)
- * 		secArray [i] = new char [map(i)];*/
+/* Test coding here*/
