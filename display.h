@@ -1,3 +1,8 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
 void Display (char displayOut[24][81])
 {
 	int i=0, j=0;

@@ -9,19 +9,22 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include display.h			//controls visual output
-#include mechanics.h		//maintains games rules and standards
-#include controls.h			//controls and recieves user input to the game
-#include mapupdate.h		//maintains map database for the maze
-
+#include "movecounter.h"	//maintains move count, important to some functions
+#include "mapupdate.h"		//maintains map database for the maze
+#include "mechanics.h"		//maintains games rules and standards
+#include "controls.h"		//controls and recieves user input to the game
+#include "display.h"		//controls visual output
 
 using namespace std;
+
+	int count=0; //declared here to make it easier to access
 
 int main ()
 {
 	int i,j;
 	char direction='s';
-	string gameMap [24][81], c;
+	char gameMap [24][81], c;
+	
 	ifstream fin;                   // Initialise filestream object.
   
 	fin.open("maze_file.txt", ios::in);
@@ -47,7 +50,10 @@ int main ()
 	
 	cin>>direction;
 	
-	game (gameMap, direction);
+	if (count<1){
+		buildSTATIC(gameMap);
+		count++;
+	else buildDYNAMIC
 	
 	fin.close();                  //Closing open streams
 	return 0;

@@ -126,6 +126,10 @@ Thumbs.db
 # Folder config file
 Desktop.ini
 
+#compiled program
+main.exe
+main.obj
+
 
 #############
 ## Python
