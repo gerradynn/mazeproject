@@ -1,82 +1,82 @@
-This readme is associated with the currently (1/30/2013)
-unamed project being created by Shawn Noble.
-
-The entire project is created by me, using codes and
-structures I have compiled. I maintain control of all
-repositories, and ask that if you use any file or part
-of a file that you please inform me of your doing so,
-and that I be acknowledged in the readme or credits of
-the associated project.
-
-The code is otherwise released to the public with no
-other stipulations.
-
-This program will build a two-dimensional array from
-an accompanying text file. This file must be named
-"maze_file.txt" and must be formatted as follows.
-
-Number of lines:                    24
-number of characters/line:          81
-walls and border character:          #
-empty space:                   'space'
-player:                              X
-endpoint:                            Y
-
-A simple U-shaped map would be formatted as so.
-
-#######
-#X###Y#
-# ### #
-#     #
-#######
-
-explanation of files:
-display.h:
-This will manage all of the visual output on screen,
-reading out the map compiled in mapUpdate.h
-
-mechanics.h:
-Maintains the rules of the game, and checks that
-they are being followed. If not followed, will force
-a 'false' value to be sent to mapupdate and then display.
-
-controls.h:
-this library interprets the user input so the program
-can move the character. If no input, or a not allowed
-input, is given it will skip mechanics and send a false
-mapupdate then to display. Also reads in the 'reset'
-function allowing mapupdate to restart the game and reset
-the game counter.
-
-mapupdate.h:
-is the class which maintains a static backup copy of the
-original map file, and dynamic map which the program will
-edit as the player moves through the maze. It also, in
-the event they are not given, ask for confirmation from
-mechanics and controls to make sure it is making the right
-move.
-
-movecounter.h:
-CURRENTLY, unused file. If used, will maintain the number
-of moves made, each illegal move, false input, or use of
-reset used during the game. May also contain the "kill"
-command to exit the game.
-
-main.cpp
-Contains int main() and oversees the general management
-of the game. Will contain a "kill" command, even if
-movecounter.h has one. Can override any function, as
-needed in order to maintain game stability or cheat.
-In particular, it can force mapupdate to log an illegal
-move which display will display on screen, reset or trip
-the movecounter. Can potentially crash game by making
-moves to outside the game space. main function is also
-the only function which can read in maze_file.txt and
-log it in any way.
-
-maze_file.txt
-This is the user created map, which the main function
-will read in and store as a two dimensional array.
-Later iterations may allow for a new naming convention
-to allow the user to have more than one map located
-with the game file.
+#This readme is associated with the currently (1/30/2013)
+#unamed project being created by Shawn Noble.
+#
+#The entire project is created by me, using codes and
+#structures I have compiled. I maintain control of all
+#repositories, and ask that if you use any file or part
+#of a file that you please inform me of your doing so,
+#and that I be acknowledged in the readme or credits of
+#the associated project.
+#
+#The code is otherwise released to the public with no
+#other stipulations.
+#
+#This program will build a two-dimensional array from
+#an accompanying text file. This file must be named
+#"maze_file.txt" and must be formatted as follows.
+#
+#Number of lines:                    24
+#number of characters/line:          81
+#walls and border character:          #
+#empty space:                   'space'
+#player:                              X
+#endpoint:                            Y
+#
+#A simple U-shaped map would be formatted as so.
+#
+#  #######
+#  #X###Y#
+#  # ### #
+#  #     #
+#  #######
+#
+#explanation of files:
+#display.h:
+#This will manage all of the visual output on screen,
+#reading out the map compiled in mapUpdate.h
+#
+#mechanics.h:
+#Maintains the rules of the game, and checks that
+#they are being followed. If not followed, will force
+#a 'false' value to be sent to mapupdate and then display.
+#
+#controls.h:
+#this library interprets the user input so the program
+#can move the character. If no input, or a not allowed
+#input, is given it will skip mechanics and send a false
+#mapupdate then to display. Also reads in the 'reset'
+#function allowing mapupdate to restart the game and reset
+#the game counter.
+#
+#mapupdate.h:
+#is the class which maintains a static backup copy of the
+#original map file, and dynamic map which the program will
+#edit as the player moves through the maze. It also, in
+#the event they are not given, ask for confirmation from
+#mechanics and controls to make sure it is making the right
+#move.
+#
+#movecounter.h:
+#CURRENTLY, unused file. If used, will maintain the number
+#of moves made, each illegal move, false input, or use of
+#reset used during the game. May also contain the "kill"
+#command to exit the game.
+#
+#main.cpp
+#Contains int main() and oversees the general management
+#of the game. Will contain a "kill" command, even if
+#movecounter.h has one. Can override any function, as
+#needed in order to maintain game stability or cheat.
+#In particular, it can force mapupdate to log an illegal
+#move which display will display on screen, reset or trip
+#the movecounter. Can potentially crash game by making
+#moves to outside the game space. main function is also
+#the only function which can read in maze_file.txt and
+#log it in any way.
+#
+#maze_file.txt
+#This is the user created map, which the main function
+#will read in and store as a two dimensional array.
+#Later iterations may allow for a new naming convention
+#to allow the user to have more than one map located
+#with the game file.
